@@ -1,0 +1,43 @@
+application: valentinesearch
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon.ico
+  static_files: /favicon.ico
+  upload: /favicon.ico
+
+ 
+- url: /css
+  static_dir: css
+  
+- url: /js
+  static_dir: js
+  
+- url: /fonts
+  static_dir: fonts 
+
+
+- url: /pics
+  static_dir: pics 
+  
+- url: /audio
+  static_dir: audio 
+
+- url: .*
+  script: main.app
+
+  
+  
+  
+  
+  
+  
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest

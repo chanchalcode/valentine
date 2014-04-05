@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head>
+<title>{% block title %}{% endblock %}- Valentine Seach</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+
+
+<style type="text/css">
+
+.pre-formate {
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+display: block;
+padding: 5px;
+margin: 0 0 10px;
+font-size: 14px;
+line-height: 1.428571429;
+color: #333333;
+word-break: normal;
+word-wrap: normal;
+background-color: #ffffff;
+border: 1px solid #ffffff;
+border-radius: 4px;
+}
+</style>
+
+<meta name="description" content="All the single people who are wondering who is their soul-mate make a stop here to search for your valentine today.">
+    <meta property="og:description" content="All the single people who are wondering who is their soul-mate make a stop here to search for your valentine today." />
+
+
+
+</head>
+  
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/"><b class="glyphicon glyphicon-heart " style="color:red"></b><span style="color:red"><b class="glyphicon glyphicon-heart " style="color:red"></b><span style="color:red"></span></a>
+  </div>
+  
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{ url|safe }}">{{ url_linktext }}</a></li>
+      <li><a href="{{ url|safe }}">  </a></li>
+      
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+  
+  
+  
+  
+  
+  
+  
+  <body style="padding-top: 70px;">
+  
+  <div id="content">
+  
+  {% block content %}{% endblock %}
+  
+
+ </div> 
+ 
+
+  
+
+
+
+
+<footer class="bs-footer col-sm-12" style="padding-top:100px" role="contentinfo">
+      <div>
+        &copy; Valentine 2014 <a href=/about>About</a>
+      </div>
+      </br>
+      </br>
+    </footer>
+
+ 
+   
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+{% block pageScript %}{% endblock %}
+
+  </body>
+</html>
+{% endautoescape %}

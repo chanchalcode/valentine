@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+{% block title %} Valentine Search {% endblock %}
+
+{% block content %}  
+
+
+  <div row"> 
+  <div class="col-md-3">
+  <div class="col-md-12"><img src="/pics/love.gif" class="img-responsive" alt="Responsive image"></div>
+   
+  </div>
+ 
+  <div class="col-md-7 row">
+  
+  <div class="col-md-12"><h2 class="text-center"><b class="glyphicon glyphicon-search" style="color:red"></b> <span style="color:red">Search Your Valentine</span></h2></div>
+  <div class="col-md-12">
+  
+  
+  </div>
+  
+  
+
+  
+  <div class="col-md-12">
+  
+    <div class="input-group">
+      <input type="text" id="name" placeholder="Write Your Name" value={{user}} class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-default" id="search" type="button"><b class="glyphicon glyphicon-search"></b></button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-->
+  
+</br></br>
+
+<div class="col-md-12">
+<div class="alert alert-block" id="alert">
+  <strong><div style="color:red" id="message"> </div></strong>
+</div>
+</div>
+
+<div class="col-md-12" style="padding-top: 10px; display:none" id="photoalert"><img src="/pics/kw1nibI.jpg" class="img-responsive" alt="Responsive image"></div>
+
+<div id="video" style="display:none">
+
+<iframe width="800" height="600" src="//www.youtube.com/embed/XF94y2kDmuo" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+
+
+</div>
+
+
+<div class="col-md-2" style="padding-top: 10px;"><img src="/pics/Love_heart_uidaodjsdsew.gif" class="img-responsive" alt="Responsive image"></div>
+
+
+
+
+</div>
+  
+  
+  
+</br></br>
+</div>
+  
+
+
+
+
+
+  
+  <div class=" col-sm-8 ">
+  
+  
+    {% for greeting in greetings %}
+      {% if greeting.author %}
+      <p class=text-muted>
+        <b>{{ greeting.author.nickname() }}</b> wrote on<small title="{{greeting.date.strftime('%d, %b, %Y %I:%M %p')}}"> {{ greeting.date.strftime("%d, %b, %Y") }} </small>:
+      {% else %}
+       An anonymous person wrote on <small title="{{greeting.date.strftime('%d, %b, %Y %I:%M %p')}}"> {{ greeting.date.strftime("%d, %b, %Y") }} </small>
+      {% endif %}
+      </p>
+      <div class="lead text-center text-primary">{{greeting.heading}}</div>
+      <blockquote><pre class="pre-formate" >{{ greeting.content }}</pre></blockquote>
+      
+    {% endfor %}
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block pageScript %}
+
+
+<script>
+
+$('#search').click(function() {
+  var name=document.getElementById("name").value;
+  if (name == "" || name=="None")
+  {
+  	alert("Please Enter Your Name");
+  }else
+  {
+  	var displayMessage = "<span> Dear "+name+", I couldn't find anyone, but don't worry</span><span> <strong> I Love You !!! </strong></span>"
+  
+  	$('#message').html(displayMessage);
+   $('#photoalert').show();
+  }
+  
+});
+
+$( document ).ready(function() {
+	
+  	if (document.getElementById("name").value == "None")
+	{
+	document.getElementById("name").value="";
+	}
+
+});
+
+
+
+$('#alert').show();
+</script>
+
+{% endblock %}
+
+
+
+
